@@ -1,3 +1,3 @@
-![alt text](public/Resources/eagleDream.png)
+![alt text](public/Resources/logo_coloured.png)
 
 Read me file
