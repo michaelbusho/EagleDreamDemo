@@ -36,7 +36,7 @@ app.get('/', (req, res)=>{
 app.post('/',(req, res) =>{
    var characterName= req.body.characterName;
    var realm = req.body.realm;
-   console.log(`The character name is ${characterName} and the realm is ${realm}`);
+   
    callBlizzardApi(characterName, realm);
    res.end(JSON.stringify(character));
 });
