@@ -11,11 +11,15 @@ function getBlizzardInfo(characterName, realm, callback){
 			console.log(eqItems);
 			var statsObj = stats.data;
 			var eqItemsObj = eqItems.data.items;
-			var info = {statsObj, eqItemsObj};
+			var statusMessage = {status: 'ok', reason: 'ok'};
+			var info = {statsObj, eqItemsObj, statusMessage};
 			callback(info);
 		})).catch(function (error) {
-			console.log(error);
-			callback({});
+			var statusMessage = error.response.data;
+			var stats = {};
+			var info = {statusMessage, stats}
+			console.log(info);
+			callback(info);
 		});
 	});
 };

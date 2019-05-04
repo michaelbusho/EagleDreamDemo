@@ -8,12 +8,16 @@ searchForm.submit(function (e) {
     url: searchForm.attr('action'),
     data: searchForm.serialize(),
     success: function (data) {
-        console.log('The Search was successful.');
+        console.log('Performed Search.');
         var obj = JSON.parse(data);
-        console.log(obj);
+        if(obj.statusMessage.status === 'ok'){
+          console.log(obj);
+        }else{
+           console.log(obj.statusMessage.reason);
+        }
     },
     error: function (data) {
-        console.log('An error occurred.');
+        console.log('Search could not be performed');
         console.log(data);
     },
   });

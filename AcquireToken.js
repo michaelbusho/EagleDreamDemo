@@ -12,8 +12,8 @@ function getAccessToken(callback){
 		},
 		form: { grant_type: 'client_credentials' },   
 		auth: {
-			'user': '83ffd38037c040e694d5aaf72aee9a83',
-		    'pass': 'oAWUsgbakOvTq1Q0gp9xU9EPWivify0s'
+			'user': clientID,
+		    'pass': clientSecret
 		}
 	},function(error, response, body){
 		if(error) {
