@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>EagleView Demo</title>
+	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 	<div class="central-content">
@@ -9,14 +10,17 @@
 			Logo
 		</div>
 		<div class="submission">
-			<form  method="POST">
-				<input type="text" name="characterName" value="Character Name">
+			<form  id="searchForm" action="/" method="POST">
+				<input type="text" name="characterName" placeholder="Character name">
 				  <br>
-				<input type="text" name="realm" value="Real Name">
+				<input type="text" name="realm" placeholder="Realm name">
 				  <br>
 				<input type="submit" value="Search">
 			</form>
 		</div>
+	</div>
+	<div id="loading">
+		LOAAOAOADING
 	</div>
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
