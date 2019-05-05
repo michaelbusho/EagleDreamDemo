@@ -1,0 +1,284 @@
+$input-color: #0e1329;
+$color-primary: #10162b;
+$color-stats: #9b712a;
+$color-stats-bold: #bd892b;
+$button-greenish-light: #1c8d83;
+$button-greenish: #197e75;
+$button-greenish-dark: #115852;
+$button-bluish-light:#3f7e91;
+$button-bluish: #386f80;
+$button-bluish-dark: #29525f;
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.7;
+	color: #777;
+	background-image: url(../Resources/wallpaper.jpg);
+	background-size: cover;
+	background-position: top;
+	height: 100vh;
+}
+.content-wrapper{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.central-content{
+	display: inline-block;
+	margin-top: 4rem;
+
+	.logo{
+		width: 300px;
+		height: 80px;
+		display: block;
+
+		img{
+			height: auto;
+			width: 100%;
+		}
+	}
+	
+	.submission{
+		height: 200px;
+		input:not(:last-child) {
+			border: none;
+			margin-top: 15px;
+			width: 250px;
+			height: 33px;
+			background-color: $input-color;
+			font-size: 15px;
+			line-height: 2;
+			padding-left: 15px;
+			letter-spacing: 1px;
+		}
+		input:not(:last-child):focus{
+			outline: none;
+		}
+		input:not(:last-child):active{
+			background-color: $input-color!important;
+		}
+		input:not(:last-child),select, textarea{
+			color:white;
+		}
+	}
+}
+
+#submitButton{
+	border: none;
+	margin-top: 15px;
+	width: 250px;
+	height: 35;
+	background-image: linear-gradient($button-greenish-light,$button-bluish-light);
+	color:white;
+}
+#submitButton:hover{
+	cursor: pointer;
+	background-image: linear-gradient($button-greenish,$button-bluish);
+}
+#submitButton:active{
+	cursor: pointer;
+	background-image: linear-gradient($button-greenish-dark,$button-bluish-dark);
+}
+#searchForm{
+	height: 100%;
+}
+
+
+#characterModal {
+	display: none;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 56vh;
+	overflow: auto;
+	background-color: rgba(17, 23, 45, 0.72);
+}
+
+.modal-content {
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+	width: 100%;
+}
+.characterTable {
+	background-color: $color-primary;
+	margin-left: 6rem;
+	margin-top: 3rem;
+	width: 50%;
+	height: 80%;
+	border-radius: 10px;
+	border: 1px solid gray;
+
+	.character-content-wrapper{
+		display:flex;
+		justify-content: space-between;
+		height: 100%;
+	}
+
+	.stats-wrapper {
+		width: 66%;
+	}
+	.group {
+		width: 33%;
+		padding-top: 2rem;
+		padding-left: 1rem;
+	}
+
+
+	.statsTitle {
+		color: white;
+		display: block;
+		text-align: left;
+	}
+	.stat {
+		font-size: 10px;
+		color: $color-stats;
+		display: block;
+		text-align: left;
+		&-number{
+			color:  #777;
+			font-size: 10px;
+			display: block;
+			
+		}
+	}
+	.column{
+		display: inline-flex;
+		justify-content: space-around;
+		width: 100%;
+		
+
+		&-values{
+			text-align: right;
+		}
+	}
+	.column-first{
+		padding-top: 10px;
+		height: 45%;
+	}
+}
+
+.itemTable{
+	background-color: $color-primary;
+	margin-left: 6rem;
+	margin-top: 3rem;
+	width: 30%;
+	height: 80%;
+	border-radius: 10px;
+	border: 1px solid gray;
+}
+.close{
+	color: white;
+	font-size: 28px;
+	font-weight: bold;
+	padding-right: 2rem;
+}
+
+.close:hover {
+	cursor: pointer;
+}
+
+
+
+
+#loading{
+	display: none;
+}
+
+/* The styling of this loading spinner is not done by me -- i made small adjustments*/
+.cssload-container{
+	position:relative;
+}
+	
+.cssload-whirlpool,
+.cssload-whirlpool::before,
+.cssload-whirlpool::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border: 1px solid rgb(204,204,204);
+	border-left-color: rgb(0,0,0);
+	border-radius: 974px;
+		-o-border-radius: 974px;
+		-ms-border-radius: 974px;
+		-webkit-border-radius: 974px;
+		-moz-border-radius: 974px;
+}
+
+.cssload-whirlpool {
+	margin: -24px 0 0 -24px;
+	height: 49px;
+	width: 49px;
+	animation: cssload-rotate 1150ms linear infinite;
+		-o-animation: cssload-rotate 1150ms linear infinite;
+		-ms-animation: cssload-rotate 1150ms linear infinite;
+		-webkit-animation: cssload-rotate 1150ms linear infinite;
+		-moz-animation: cssload-rotate 1150ms linear infinite;
+
+}
+
+.cssload-whirlpool::before {
+	content: "";
+	margin: -22px 0 0 -22px;
+	height: 43px;
+	width: 43px;
+	animation: cssload-rotate 1150ms linear infinite;
+		-o-animation: cssload-rotate 1150ms linear infinite;
+		-ms-animation: cssload-rotate 1150ms linear infinite;
+		-webkit-animation: cssload-rotate 1150ms linear infinite;
+		-moz-animation: cssload-rotate 1150ms linear infinite;
+}
+
+.cssload-whirlpool::after {
+	content: "";
+	margin: -28px 0 0 -28px;
+	height: 55px;
+	width: 55px;
+	animation: cssload-rotate 2300ms linear infinite;
+		-o-animation: cssload-rotate 2300ms linear infinite;
+		-ms-animation: cssload-rotate 2300ms linear infinite;
+		-webkit-animation: cssload-rotate 2300ms linear infinite;
+		-moz-animation: cssload-rotate 2300ms linear infinite;
+}
+
+
+
+@keyframes cssload-rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@-o-keyframes cssload-rotate {
+	100% {
+		-o-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes cssload-rotate {
+	100% {
+		-ms-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes cssload-rotate {
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-moz-keyframes cssload-rotate {
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+

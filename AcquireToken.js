@@ -32,32 +32,3 @@ function getAccessToken(callback){
 }
 
 module.exports.getAccessToken = getAccessToken;
-
-
-
-/*
-
-var params = {
-	method: 'POST',
-	url: 'https://us.battle.net/oauth/token',
-	headers: {
-		'content-type' : 'application/x-www-form-urlencoded', 
-		'Cache-Control' : 'no-cache' 
-	},
-	body: "grant_type=client_credentials" ,
-	auth: {
-		username: clientID,
-	    password: clientSecret
-	}
-}
-axios.interceptors.request.use(request => {
-  console.log('Starting Request', request)
-  return request
-})
-
-
-axios(params).then(function (response) {
-		console.log("ook");
-	}).catch(function (error){
-		console.log(error);
-});*/

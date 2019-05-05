@@ -16,10 +16,10 @@ app.get('/', (req, res)=>{
 	res.render('index.hbs');
 });
 app.post('/',(req, res) =>{
-   var characterName= req.body.characterName;
-   var realm = req.body.realm;
-   
-  	blizzardInfo.getBlizzardInfo(characterName, realm, function(info){
+	var characterName= req.body.characterName;
+	var realm = req.body.realm;
+    
+	blizzardInfo.getBlizzardInfo(characterName, realm, function(info){
   		res.end(JSON.stringify(info));
   	})
    

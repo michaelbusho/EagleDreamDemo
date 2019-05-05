@@ -5,23 +5,99 @@
 	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-	<div class="central-content">
-		<div class="logo">
-			Logo
+	<div class="content-wrapper">
+		<div class="central-content">
+			<div class="logo">
+			  <img src="../Resources/eagleDream.png" alt="EagleDream Technologies logo" />
+			</div>
+			<div class="submission">
+				<form  id="searchForm" action="/" method="POST">
+					<input type="text" name="characterName" placeholder="Character name" required="required" pattern="[A-Za-z0-9]{1,20}">
+					  <br>
+					<input type="text" name="realm" placeholder="Realm name" required="required" pattern="[A-Za-z0-9]{1,20}">
+					  <br>
+					<input id="submitButton" type="submit" value="Search">
+					  <br>
+				</form>
+			</div>
 		</div>
-		<div class="submission">
-			<form  id="searchForm" action="/" method="POST">
-				<input type="text" name="characterName" placeholder="Character name">
-				  <br>
-				<input type="text" name="realm" placeholder="Realm name">
-				  <br>
-				<input type="submit" value="Search">
-			</form>
+		<div class="cssload-container" id= "loading">
+			<div class="cssload-whirlpool"></div>
+			<span style="color:white">Load</span>	
+		</div>
+
+				<!-- The Modal -->
+		<div id="characterModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="characterTable">
+					<div class="character-content-wrapper">
+
+						<div class="stats-wrapper">
+							<div class="column column-first">
+								<div class="group-descr ">
+									<span class="statsTitle">Attributes</span>
+									<span class="stat">Level</span>
+									<span class="stat">Health</span>
+									<span class="stat">Strength</span>
+									<span class="stat">Agility</span>
+									<span class="stat">Inteligence</span>
+									<span class="stat">Stamina</span>
+									<span class="stat">Haste</span>
+								</div>
+
+								<div class="group-values">
+									<span class="statsEmpty"> .</span>
+									<span class="stat-number" id="level" >-</span>
+									<span class="stat-number" id="health" >-</span>
+									<span class="stat-number" id="Strength" >-</span>
+									<span class="stat-number" id="Agility" >-</span>
+									<span class="stat-number" id="Inteligence" >-</span>
+									<span class="stat-number" id="Stamina" >-</span>
+									<span class="stat-number" id="Haste" >-</span>
+								</div>
+							</div>
+							<div class="column">
+								<div class="group-descr">
+									<span class="statsTitle">Attack</span>
+									<span class="stat">Damage</span>
+									<span class="stat">Speed</span>
+								</div>
+
+								<div class="group-values">
+									<span class="statsEmpty"> .</span>
+									<span class="stat-number" id="damage" >-</span>
+									<span class="stat-number" id="speed" >-</span>
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="group-descr">
+									<span class="statsTitle">Spell</span>
+									<span class="stat">Damage</span>
+								</div>
+
+								<div class="group-values">
+									<span class="statsEmpty"> .</span>
+									<span class="stat-number" id="spell" >-</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="column">
+							Images
+						</div>
+
+					</div>
+				</div>
+				<div class="itemTable">
+					items
+				</div>
+				<span class="close" onclick="closeCharacterModal()">&times;</span>
+			</div>
 		</div>
 	</div>
-	<div id="loading">
-		LOAAOAOADING
-	</div>
+
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript" src="/scripts/logic.js"> </script>
