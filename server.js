@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const hbs = require('hbs');
 const request = require('request');
-const blizzardInfo = require('./HandleBlizzardApi.js');
+const blizzardInfo = require('./serverSupport/HandleBlizzardApi.js');
 
 //Setting important variables
 app.use(bodyParser.json());
