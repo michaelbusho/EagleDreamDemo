@@ -1,27 +1,613 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>EagleView Demo</title>
+	<title>EagleDream Demo</title>
 	<link rel="stylesheet" href="styles/style.css">
+
 </head>
 <body>
-	<div class="central-content">
-		<div class="logo">
-			Logo
+	<div class="content-wrapper">
+		<div class="central-content">
+			<div class="logo">
+			  <img src="../Resources/eagleDream.png" alt="EagleDream Technologies logo" />
+			</div>
+			<div class="submission">
+				<form  id="searchForm" action="/" method="POST">
+					<input type="text" name="characterName" placeholder="Character name" required="required" pattern="[A-Za-z0-9]{1,20}">
+					  <br>
+					<input type="text" name="realm" placeholder="Realm name" required="required" pattern="[A-Za-z0-9]{1,20}">
+					  <br>
+					<input id="submitButton" type="submit" value="Search">
+					  <br>
+				</form>
+			</div>
 		</div>
-		<div class="submission">
-			<form  id="searchForm" action="/" method="POST">
-				<input type="text" name="characterName" placeholder="Character name">
-				  <br>
-				<input type="text" name="realm" placeholder="Realm name">
-				  <br>
-				<input type="submit" value="Search">
-			</form>
+		<div class="cssload-container" id= "loading">
+			<div class="cssload-whirlpool"></div>
+			<span style="color:white">Load</span>	
+		</div>
+				<!-- The Modal -->
+		<div id="characterModal" class="modal">
+			<span class="close" onclick="closeCharacterModal()">&times;</span>
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="characterTable">
+					<div class="group1">
+						<div class="column column-first">
+							<div class="column-desc">
+								<span class="statsTitle">Attributes</span>
+								<span class="stat">Level</span>
+								<span class="stat">Health</span>
+								<span class="stat">Strength</span>
+								<span class="stat">Agility</span>
+								<span class="stat">Inteligence</span>
+								<span class="stat">Stamina</span>
+							</div>
+
+							<div class="column-val">
+								<span class="stat-number" id="level" >--</span>
+								<span class="stat-number" id="health" >--</span>
+								<span class="stat-number" id="strength" >--</span>
+								<span class="stat-number" id="agility" >--</span>
+								<span class="stat-number" id="inteligent" >--</span>
+								<span class="stat-number" id="stamina" >--</span>
+							</div>
+						</div>
+						<div class="column column-second"> 
+							<div class="column-desc">
+								<span class="statsTitle">Attack</span>
+								<span class="stat">Damage</span>
+								<span class="stat">Speed</span>
+							</div>
+
+							<div class="column-val">
+								<span class="stat-number" id="damage" >--</span>
+								<span class="stat-number" id="speed" >--</span>
+							</div>
+						</div>
+						<div class="column column-third"> 
+							<div class="column-desc"> 
+								<span class="statsTitle">Spell</span>
+								<span class="stat">Mana Regen</span>
+							</div>
+							<div class="column-val"> 
+								<span class="stat-number" id="manaRegen" >--</span>
+							</div>
+						</div>
+					</div>
+					<div class="group2"> 
+						<div class="column column-forth"> 
+							<div class="column-desc"> 
+								<span class="statsTitle">Defense</span>
+								<span class="stat">Armor</span>
+								<span class="stat">Dodge</span>
+								<span class="stat">Parry</span>
+								<span class="stat">Block</span>
+							</div>
+							<div class="column-val"> 
+								<span class="stat-number" id="armor" >--</span>
+								<span class="stat-number" id="dodge" >--</span>
+								<span class="stat-number" id="parry" >--</span>
+								<span class="stat-number" id="block" >--</span>
+							</div>
+						</div>
+						<div class="column column-fifth"> 
+							<div class="column-desc"> 
+								<span class="statsTitle">Enhancements</span>
+								<span class="stat">Crit</span>
+								<span class="stat">Haste</span>
+								<span class="stat">Mastery</span>
+								<span class="stat">Leech</span>
+								<span class="stat">Versatility</span>
+							</div>
+
+							<div class="column-val">
+								<span class="stat-number" id="critical" >--</span>
+								<span class="stat-number" id="haste" >--</span>
+								<span class="stat-number" id="mastery" >--</span>
+								<span class="stat-number" id="leech" >--</span>
+								<span class="stat-number" id="versatility" >--</span>
+							</div>
+						</div>
+					</div>
+					<div class="seperator">	
+					</div>
+					<div class="group3"> 
+						<span class="compare">Compare Stats</span>
+						<div class="images-wrapper">
+							<div class="row">
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/mike.jpg" alt="Avatar1">
+								</div>
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/fuo.jpg" alt="Avatar2">
+								</div>
+							</div>
+							<div class="row">
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/regex.jpg" alt="Avatar3">
+								</div>
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/tweeps.jpg" alt="Avatar4">
+								</div>
+							</div>
+							<div class="row">
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/lockino.jpg" alt="Avatar5">
+								</div>
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/briefdruid.jpg" alt="Avatar5">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="itemTable">
+					<span class="itemTitle">My item sets</span>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+
+								<img src="../Resources/black.jpg" class="head-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id head" >--</span>
+								<span class="hover-id head-sellPrice" >--</span>
+								<span class="hover-id head-buyPrice">--</span>
+								<span class="hover-id head-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Helm</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val head">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price head-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+
+								<img src="../Resources/black.jpg" class="chest-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id chest" >--</span>
+								<span class="hover-id chest-sellPrice" >--</span>
+								<span class="hover-id chest-buyPrice">--</span>
+								<span class="hover-id chest-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Chest</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val chest">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price chest-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+
+								<img src="../Resources/black.jpg" class="shoulder-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id shoulder" >--</span>
+								<span class="hover-id shoulder-sellPrice" >--</span>
+								<span class="hover-id shoulder-buyPrice">--</span>
+								<span class="hover-id shoulder-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Shoulders</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val shoulder">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price shoulder-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+
+								<img src="../Resources/black.jpg" class="legs-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id legs" >--</span>
+								<span class="hover-id legs-sellPrice" >--</span>
+								<span class="hover-id legs-buyPrice">--</span>
+								<span class="hover-id legs-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Legs</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val legs">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price legs-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+
+								<img src="../Resources/black.jpg" class="feet-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id feet" >--</span>
+								<span class="hover-id feet-sellPrice" >--</span>
+								<span class="hover-id feet-buyPrice">--</span>
+								<span class="hover-id feet-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Feet</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val feet">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price feet-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="trinket1-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id trinket1" >--</span>
+								<span class="hover-id trinket1-sellPrice" >--</span>
+								<span class="hover-id trinket1-buyPrice">--</span>
+								<span class="hover-id trinket1-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Trinket 1</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val trinket1">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price trinket1-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="trinket2-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id trinket2" >--</span>
+								<span class="hover-id trinket2-sellPrice" >--</span>
+								<span class="hover-id trinket2-buyPrice">--</span>
+								<span class="hover-id trinket2-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Trinket 2</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val trinket2">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price trinket2-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="back-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id back" >--</span>
+								<span class="hover-id back-sellPrice" >--</span>
+								<span class="hover-id back-buyPrice">--</span>
+								<span class="hover-id back-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Back</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val back">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price back-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="mainHand-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id mainHand" >--</span>
+								<span class="hover-id mainHand-sellPrice" >--</span>
+								<span class="hover-id mainHand-buyPrice">--</span>
+								<span class="hover-id mainHand-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Main Hand</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val mainHand">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price mainHand-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="offHand-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id offHand" >--</span>
+								<span class="hover-id offHand-sellPrice" >--</span>
+								<span class="hover-id offHand-buyPrice">--</span>
+								<span class="hover-id offHand-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Off Hand</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val offHand">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price offHand-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="neck-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id neck" >--</span>
+								<span class="hover-id neck-sellPrice" >--</span>
+								<span class="hover-id neck-buyPrice">--</span>
+								<span class="hover-id neck-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Neck</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val neck">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price neck-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="waist-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id waist" >--</span>
+								<span class="hover-id waist-sellPrice" >--</span>
+								<span class="hover-id waist-buyPrice">--</span>
+								<span class="hover-id waist-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Waist</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val waist">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price waist-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="wrist-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id wrist" >--</span>
+								<span class="hover-id wrist-sellPrice" >--</span>
+								<span class="hover-id wrist-buyPrice">--</span>
+								<span class="hover-id wrist-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Wrist</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val wrist">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price wrist-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="shirt-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id shirt" >--</span>
+								<span class="hover-id shirt-sellPrice" >--</span>
+								<span class="hover-id shirt-buyPrice">--</span>
+								<span class="hover-id shirt-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Shirt</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val shirt">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price shirt-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="finger1-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id finger1" >--</span>
+								<span class="hover-id finger1-sellPrice" >--</span>
+								<span class="hover-id finger1-buyPrice">--</span>
+								<span class="hover-id finger1-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Finger 1</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val finger1">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price finger1-sellPrice" >-- </span>
+						</div>
+					</div>
+					<div class="item-row hover-item">
+						<div class="hover-item-panel">
+							<div class="img-wrapper">
+								<img src="../Resources/black.jpg" class="finger2-icon item-image">
+							</div>
+							<div class="hover-stat-wrapper">
+								<span class="hover-stat"> Name: </span>
+								<span class="hover-stat"> SellPrice: </span>
+								<span class="hover-stat"> BuyPrice: </span>
+								<span class="hover-stat"> Min Lvl: </span>
+							</div>
+							<div class="hover-value-wrapper">
+								<span class="hover-id finger2" >--</span>
+								<span class="hover-id finger2-sellPrice" >--</span>
+								<span class="hover-id finger2-buyPrice">--</span>
+								<span class="hover-id finger2-requiredLevel" id="hover-level">--</span>
+							</div>
+						</div>
+						<div class="item-col">
+							<span class="item-descr">Finger 2</span>
+						</div>
+						<div class="item-col">
+							<span class="item-val finger2">--</span>
+						</div>
+						<div class="item-col">
+							<span class="price finger2-sellPrice" >-- </span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div id="loading">
-		LOAAOAOADING
-	</div>
+
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript" src="/scripts/logic.js"> </script>
