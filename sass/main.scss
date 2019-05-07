@@ -184,6 +184,29 @@ body {
 	}
 }
 
+
+.profile{
+	 
+	 float: left;
+	 margin-top: 1rem;
+	 margin-left: 1rem;
+	
+	 position:relative;
+	 height: 120px;
+	 width: 80px;
+}
+
+.profile-image{
+	position:absolute;
+	left: 40%;
+	height: 100%;
+	width: 100%;
+	img{
+		border: 2px solid white;
+		border-radius: 50%;
+	}
+}
+
 //invalid modal
 #invalidModal {
 	display: none;
@@ -239,7 +262,7 @@ body {
 	margin-top: 2.5rem;
 	padding-top: 1rem;
 	background-color: $color-primary;
-	margin-left: 6rem;
+	margin-left: 1rem;
 	width: 40%;
 	height: 80%;
 	border-radius: 10px;

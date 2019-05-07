@@ -140,6 +140,23 @@ body {
   100% {
     -moz-transform: rotate(360deg); } }
 
+.profile {
+  float: left;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  position: relative;
+  height: 120px;
+  width: 80px; }
+
+.profile-image {
+  position: absolute;
+  left: 40%;
+  height: 100%;
+  width: 100%; }
+  .profile-image img {
+    border: 2px solid white;
+    border-radius: 50%; }
+
 #invalidModal {
   display: none;
   margin-top: 1rem;
@@ -188,7 +205,7 @@ body {
   margin-top: 2.5rem;
   padding-top: 1rem;
   background-color: #10162b;
-  margin-left: 6rem;
+  margin-left: 1rem;
   width: 40%;
   height: 80%;
   border-radius: 10px;

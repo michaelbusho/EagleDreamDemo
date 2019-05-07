@@ -54,7 +54,9 @@ function enableFailureModal(){
 function populateFields(object){
   var statistics = object.statistics;
   var finalItems = object.finalItems;
- 
+
+  
+  $(`#profile-img`).attr("src", `http://render-us.worldofwarcraft.com/character/${object.thumnbail}`);
   Object.keys(statistics).forEach(function(key,index) {
     $(`#${key}`).text(statistics[key]);
   });
