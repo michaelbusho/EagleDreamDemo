@@ -9,7 +9,8 @@ function createFinalItems(itemsFullDesc, eqItems){
             itemsFullDesc[fullItemDescr].name, 
             itemsFullDesc[fullItemDescr].buyPrice, 
             itemsFullDesc[fullItemDescr].sellPrice, 
-            itemsFullDesc[fullItemDescr].requiredLevel
+            itemsFullDesc[fullItemDescr].requiredLevel,
+            itemsFullDesc[fullItemDescr].icon
             );
         }
       }
@@ -17,13 +18,14 @@ function createFinalItems(itemsFullDesc, eqItems){
 	return finalItems;
 }
 
-function itemPatern(itemID, itemName, itemBuyPrice, itemSellPrice, itemRequiredLevel){
+function itemPatern(itemID, itemName, itemBuyPrice, itemSellPrice, itemRequiredLevel, itemIcon){
   return {
     id: itemID,
     name: itemName,
     buyPrice: itemBuyPrice,
     sellPrice: itemSellPrice,
-    requiredLevel: itemRequiredLevel
+    requiredLevel: itemRequiredLevel,
+    icon: itemIcon
   }
 }
 

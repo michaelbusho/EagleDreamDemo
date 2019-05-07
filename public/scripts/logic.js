@@ -45,40 +45,36 @@ function enableFailureModal(){
 }
 
 function populateFields(object){
-console.log(object);
-
-  $('#level').text(object.statistics.level);
-  $('#strength').text(object.statistics.strength);
-  $('#agility').text(object.statistics.agility);
-  $('#inteligence').text(object.statistics.inteligent);
-  $('#stamina').text(object.statistics.stamina);
-  $('#health').text(object.statistics.health);
-  $('#damage').text(object.statistics.damage);
-  $('#speed').text(object.statistics.speed);
-  $('#haste').text(object.statistics.haste);
-
-  $('#armor').text(object.statistics.armor);
-  $('#dodge').text(object.statistics.dodge);
-  $('#parry').text(object.statistics.parry);
-  $('#block').text(object.statistics.block);
+  var statistics = object.statistics;
+  var finalItems = object.finalItems;
  
-  $('#critical').text(object.statistics.critical);
-  $('#haste').text(object.statistics.haste);
-  $('#mastery').text(object.statistics.mastery);
-  $('#leech').text(object.statistics.leech);
-  $('#versatility').text(object.statistics.versatility);
+  Object.keys(statistics).forEach(function(key,index) {
+    $(`#${key}`).text(statistics[key]);
+  });
+  var artifactName;
+  Object.keys(finalItems).forEach(function(key,index) {
+    artifactName = finalItems[key].name;
+    artifactName.length<21?$(`.${key}`).text(finalItems[key].name):$(`.${key}`).text(artifactName.substring(0,19) +"..");
+  
+    $(`.${key}-sellPrice`).text(finalItems[key].sellPrice);
+    $(`.${key}-buyPrice`).text(finalItems[key].buyPrice);
+    $(`.${key}-requiredLevel`).text(finalItems[key].requiredLevel);
+    $(`.${key}-icon`).attr("src",`https://render-us.worldofwarcraft.com/icons/56/${finalItems[key].icon}.jpg`);
+  });
+
+  
 /*
   $('#back').text(object.eqItemsObj.back.name);
-  $('#chest').text(object.eqItemsObj.chest.name);
+ 
   $('#feet').text(object.eqItemsObj.feet.name);
   $('#finger1').text(object.eqItemsObj.finger1.name);
   $('#finger2').text(object.eqItemsObj.finger2.name);
   $('#hands').text(object.eqItemsObj.hands.name);
-  $('#head').text(object.eqItemsObj.head.name);
+
   $('#legs').text(object.eqItemsObj.legs.name);
   $('#mainHand').text(object.eqItemsObj.mainHand.name);
   $('#offHand').text(object.eqItemsObj.offHand.name);
-  $('#shoulder').text(object.eqItemsObj.shoulder.name);
+
   $('#trinket1').text(object.eqItemsObj.trinket1.name);
   $('#trinket2').text(object.eqItemsObj.trinket2.name);
   $('#waist').text(object.eqItemsObj.waist.name);

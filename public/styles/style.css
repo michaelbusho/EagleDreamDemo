@@ -141,12 +141,13 @@ body {
     -moz-transform: rotate(360deg); } }
 
 #characterModal {
+  display: none;
   margin-top: 1rem;
   z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
-  height: 48vh;
+  height: 53vh;
   overflow: auto;
   background-color: rgba(17, 23, 45, 0.72); }
 
@@ -285,7 +286,7 @@ body {
     position: absolute;
     z-index: 1;
     bottom: 100%;
-    left: 70%;
+    left: 60%;
     text-align: left;
     font-size: 12px;
     opacity: 0;
@@ -315,7 +316,96 @@ body {
   height: 80%;
   border-radius: 10px;
   border: 1px solid gray;
-  display: inline-block; }
+  display: inline-block;
+  text-align: left;
+  padding-left: 3rem;
+  padding-top: 0.5rem; }
+  .itemTable .itemTitle {
+    color: #bd892b;
+    display: block; }
+  .itemTable .item-row {
+    height: 20px; }
+  .itemTable .item-row:hover {
+    cursor: pointer; }
+  .itemTable .item-image {
+    width: 60px;
+    height: 60px;
+    border: 1px solid gray;
+    border-radius: 10%;
+    margin-left: 3px;
+    margin-top: 5px;
+    display: inline-block; }
+  .itemTable .hover-item {
+    position: relative; }
+  .itemTable .hover-stat {
+    display: block; }
+  .itemTable .hover-id {
+    display: block;
+    font-size: 11px;
+    text-align: right; }
+  .itemTable .hover-item {
+    position: relative; }
+  .itemTable .hover-item-panel {
+    width: 250px;
+    height: 80px;
+    background-color: rgba(17, 23, 45, 0.72);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 4px 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 130%;
+    left: -5%;
+    text-align: left;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 1s;
+    visibility: hidden; }
+    .itemTable .hover-item-panel .img-wrapper {
+      width: 30%;
+      float: left;
+      display: inline-block; }
+    .itemTable .hover-item-panel .hover-stat-wrapper {
+      display: inline-block;
+      height: 100%;
+      width: 20%;
+      font-size: 11px; }
+    .itemTable .hover-item-panel .hover-value-wrapper {
+      display: inline-block;
+      width: 50%;
+      float: right; }
+  .itemTable .hover-item-panel::after {
+    content: '';
+    position: absolute;
+    top: 111%;
+    left: 12%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: red transparent transparent transparent; }
+  .itemTable .hover-item:hover .hover-item-panel {
+    visibility: visible;
+    opacity: 1; }
+  .itemTable .item-col {
+    display: inline-block;
+    width: 30%; }
+  .itemTable .item-descr {
+    display: inline-block;
+    font-size: 11px;
+    color: #9b712a; }
+  .itemTable .item-val {
+    display: inline-block;
+    font-size: 11px;
+    color: #9b712a;
+    text-align: left; }
+  .itemTable .price {
+    display: inline-block;
+    font-size: 11px;
+    text-align: right;
+    padding-right: 2rem; }
+  .itemTable .price::after {
+    content: "\0024"; }
 
 @media only screen and (max-width: 200px) {
   body {
