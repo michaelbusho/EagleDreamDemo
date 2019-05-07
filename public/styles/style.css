@@ -141,6 +141,7 @@ body {
     -moz-transform: rotate(360deg); } }
 
 #invalidModal {
+  display: none;
   margin-top: 1rem;
   height: 53vh;
   width: 100%;
