@@ -3,7 +3,6 @@
 <head>
 	<title>EagleDream Demo</title>
 	<link rel="stylesheet" href="styles/style.css">
-
 </head>
 <body>
 	<div class="content-wrapper">
@@ -25,6 +24,14 @@
 		<div class="cssload-container" id= "loading">
 			<div class="cssload-whirlpool"></div>
 			<span style="color:white">Load</span>	
+		</div>
+		<div id="invalidModal" class="modal">
+			<div class="modal-content">
+				<span class="close close-fail" onclick="closefailureModal()">&times;</span>
+				<div id="failure-reason">
+					
+				</div>
+			</div>
 		</div>
 				<!-- The Modal -->
 		<div id="characterModal" class="modal">
@@ -607,8 +614,6 @@
 			</div>
 		</div>
 	</div>
-
-	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript" src="/scripts/logic.js"> </script>
 </body>

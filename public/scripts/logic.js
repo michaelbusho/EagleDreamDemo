@@ -1,9 +1,11 @@
 // Communicate with server
 var searchForm = $('#searchForm');
 var charModal = $('#characterModal');
+var invalidModal = $('#invalidModal');
 
 searchForm.submit(function (e) {
-  charModal.hide();
+  closeCharacterModal();
+  closefailureModal();
   e.preventDefault();
   $.ajax({
     type: searchForm.attr('method'),
@@ -15,13 +17,18 @@ searchForm.submit(function (e) {
         if(obj.statusMessage.status === 'ok'){
           populateFields(obj);
           enableCharacterModal();
+          closefailureModal();
         }else{
            console.log(obj.statusMessage.reason);
+            $("#failure-reason").text(obj.statusMessage.reason);
+           closeCharacterModal();
            enableFailureModal();
+
         }
     },
     error: function (data) {
         console.log('Search could not be performed');
+        $("#failure-reason").text(`Search could not be performed: ${data}`);
         console.log(data);
     },
   });
@@ -41,7 +48,7 @@ function enableCharacterModal(){
 }
 
 function enableFailureModal(){
-  
+  invalidModal.show();
 }
 
 function populateFields(object){
@@ -61,28 +68,12 @@ function populateFields(object){
     $(`.${key}-requiredLevel`).text(finalItems[key].requiredLevel);
     $(`.${key}-icon`).attr("src",`https://render-us.worldofwarcraft.com/icons/56/${finalItems[key].icon}.jpg`);
   });
-
-  
-/*
-  $('#back').text(object.eqItemsObj.back.name);
- 
-  $('#feet').text(object.eqItemsObj.feet.name);
-  $('#finger1').text(object.eqItemsObj.finger1.name);
-  $('#finger2').text(object.eqItemsObj.finger2.name);
-  $('#hands').text(object.eqItemsObj.hands.name);
-
-  $('#legs').text(object.eqItemsObj.legs.name);
-  $('#mainHand').text(object.eqItemsObj.mainHand.name);
-  $('#offHand').text(object.eqItemsObj.offHand.name);
-
-  $('#trinket1').text(object.eqItemsObj.trinket1.name);
-  $('#trinket2').text(object.eqItemsObj.trinket2.name);
-  $('#waist').text(object.eqItemsObj.waist.name);
-  $('#wrist').text(object.eqItemsObj.wrist.name);
-*/
   console.log(object);
 }
 
 function closeCharacterModal(){
   charModal.hide();
+}
+function closefailureModal() {
+  invalidModal.hide();
 }
