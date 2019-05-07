@@ -31,6 +31,8 @@ body {
 	height: 100%;
 	text-align: center;
 }
+
+//Central Form Style
 .central-content{
 	display: inline-block;
 	margin-top: 4rem;
@@ -91,109 +93,7 @@ body {
 	height: 100%;
 }
 
-
-#characterModal {
-	display: none;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 56vh;
-	overflow: auto;
-	background-color: rgba(17, 23, 45, 0.72);
-}
-
-.modal-content {
-	display: flex;
-	justify-content: space-between;
-	height: 100%;
-	width: 100%;
-}
-.characterTable {
-	background-color: $color-primary;
-	margin-left: 6rem;
-	margin-top: 3rem;
-	width: 50%;
-	height: 80%;
-	border-radius: 10px;
-	border: 1px solid gray;
-
-	.character-content-wrapper{
-		display:flex;
-		justify-content: space-between;
-		height: 100%;
-	}
-
-	.stats-wrapper {
-		width: 66%;
-	}
-	.group {
-		width: 33%;
-		padding-top: 2rem;
-		padding-left: 1rem;
-	}
-
-
-	.statsTitle {
-		color: white;
-		display: block;
-		text-align: left;
-	}
-	.stat {
-		font-size: 10px;
-		color: $color-stats;
-		display: block;
-		text-align: left;
-		&-number{
-			color:  #777;
-			font-size: 10px;
-			display: block;
-			
-		}
-	}
-	.column{
-		display: inline-flex;
-		justify-content: space-around;
-		width: 100%;
-		
-
-		&-values{
-			text-align: right;
-		}
-	}
-	.column-first{
-		padding-top: 10px;
-		height: 45%;
-	}
-}
-
-
-
-
-
-
-.itemTable{
-	background-color: $color-primary;
-	margin-left: 6rem;
-	margin-top: 3rem;
-	width: 30%;
-	height: 80%;
-	border-radius: 10px;
-	border: 1px solid gray;
-}
-.close{
-	color: white;
-	font-size: 28px;
-	font-weight: bold;
-	padding-right: 2rem;
-}
-
-.close:hover {
-	cursor: pointer;
-}
-
-
-
+//Loading button style
 #loading{
 	display: none;
 }
@@ -254,8 +154,6 @@ body {
 		-moz-animation: cssload-rotate 2300ms linear infinite;
 }
 
-
-
 @keyframes cssload-rotate {
 	100% {
 		transform: rotate(360deg);
@@ -285,4 +183,294 @@ body {
 		-moz-transform: rotate(360deg);
 	}
 }
+
+//Character modal style
+#characterModal {
+	//display: none;
+	margin-top: 1rem;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 48vh;
+	overflow: auto;
+	background-color: rgba(17, 23, 45, 0.72);
+}
+
+.close{
+	color: white;
+	font-size: 28px;
+	font-weight: bold;
+	padding-right: 2rem;
+	position:fixed;
+	right: 0; 
+}
+
+.close:hover {
+	cursor: pointer;
+	color:#ded8d7;
+}
+
+.close:active {
+	color:#aba4a2;
+}
+
+.modal-content {
+	height: 100%;
+	width: 100%;
+
+}
+.characterTable {
+	margin-top: 2.5rem;
+	padding-top: 1rem;
+	background-color: $color-primary;
+	margin-left: 6rem;
+	width: 40%;
+	height: 80%;
+	border-radius: 10px;
+	border: 1px solid gray;
+	display: inline-block;
+	float: left;
+	padding-left: 1rem;
+	text-align: left;
+	.group1{
+		height: 100%;
+		width: 30%;
+		display: inline-block;
+		padding-left: 0rem;;
+	
+	}
+
+	.group2{
+		height: 100%;
+		width: 30%;
+		display: inline-block;
+		padding-left: 0rem;
+	}
+	.seperator{
+		height: 60%;
+		width: 1.5px;
+		//border-right: 1px solid red;
+		display: inline-block;
+		border-radius: 50% 50% 0% 0%;
+		margin-bottom: 6%;
+		background: linear-gradient(to top, rgba(128,128,128, 0.8), rgba(0, 0, 0, 0));
+		padding-left: 0rem;;
+	}
+
+	.group3{
+		height: 100%;
+		width: 34%;
+		display: inline-block!important;
+		padding-left: 0rem;
+		margin-top: 0px;
+		padding-top: 0px;
+		margin-left: 5px;
+		vertical-align: top;
+	}
+	.compare{
+		color: $color-stats-bold;
+		display: block;
+	}
+	.column {
+		width:  100%;
+	}
+	.column-first{
+		height: 45%;
+		margin-bottom: 0rem;
+		
+	}
+
+	.column-second{
+		height: 30%;
+	}
+
+	.column-third{
+		height: 30%;
+	}
+	.column-forth{
+		height: 40%;
+	}
+	.column-fifth {
+		height: 60%;
+		padding-top: 1rem;
+	}
+	.column-desc {
+		height: 100%;
+		width: 50%;
+		text-align: left;
+		padding-left: 1rem;
+		display: inline-block;
+		float: left;
+		.statsTitle{
+			color: white;
+			display: block;
+		}
+		.stat {
+			font-size: 11px;
+			color: $color-stats;
+			display: block;
+		}
+	}
+
+	.column-val{
+		float:right;
+		height: 100%;
+		width: 50%;
+		display: inline-block;
+		padding-top: 1.8rem;
+		.stat-number{
+			font-size: 11px;
+			display: block;
+			text-align: right;
+			padding-right: 1rem;
+		}
+	}
+	.images-wrapper{
+		height: 90%;
+		width: 100%;
+	}
+	.row{
+		  display: flex;
+		  flex-direction: row;
+		  flex-wrap: wrap;
+		  width: 100%;
+		  height: 30%;
+	}
+	.image-border{
+		width: 40%;
+
+		img{
+			display:block;
+    		margin:auto;
+    		height: 60px;
+    		width: 60px;
+    		margin-top: 15%;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+
+		img:hover{
+			cursor: pointer;
+		}
+	}
+	.hover-img{
+		position: relative;
+  		display: inline-block;
+	}
+	.hover-img-text{
+		width: 150px;
+		height: 50px;
+		background-color: rgba(17, 23, 45, 0.72);
+		color: white;
+		text-align: center;
+		border-radius: 10px;
+		padding: 4px 8px;
+		position: absolute;
+		z-index: 1;
+		bottom: 100%;
+		left: 70%;
+		text-align: left;
+		font-size: 12px;
+	  	opacity: 0;
+  		transition: opacity 1s;
+  		visibility: hidden;
+	}
+	.hover-img .hover-img-text::after{
+		  content: "";
+		  position: absolute;
+		  top: 100%;
+		  left: 10%;
+		  margin-left: -5px;
+		  border-width: 5px;
+		  border-style: solid;
+		  border-color:  red transparent transparent transparent;
+	}
+	.hover-img:hover .hover-img-text {
+  		visibility: visible;
+  		opacity: 1;
+	}	
+	.hover-img-text::before{
+		content:"Where is this character from?";
+	}
+}
+
+.itemTable{
+	margin-top: 2.5rem;
+	background-color: $color-primary;
+	margin-left: 6rem;
+	margin-right: 3rem;
+	width: 35%;
+	height: 80%;
+	border-radius: 10px;
+	border: 1px solid gray;
+	display: inline-block;
+}
+
+@media only screen and (max-width: 200px) {
+	body{
+		color:red;
+	}
+}
+@media only screen and (min-width: 200px) and (max-width: 400px) {
+	body{
+		color:black;
+	}
+}
+
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+	body{
+		color:magenta;
+	}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+	body{
+		color:red;
+	}
+	.characterTable {
+		width: 80%;
+		margin-top: 3rem;
+	}
+	.itemTable{ 
+		width: 80%;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		float:left;
+		margin-left: 3rem;
+	}
+}
+@media only screen and (min-width:800px) and (max-width: 1200px) {
+	body{
+		color:yellow;
+	}
+	.characterTable {
+		width: 80%;
+		margin-top: 3rem;
+	}
+	.itemTable{ 
+		width: 80%;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		float:left;
+		margin-left: 3rem;
+	}
+}
+
+@media only screen and (min-width:1200px) and (max-width: 1400px) {
+	body{
+		color:blue;
+	}
+	.characterTable {
+		width: 80%;
+		margin-top: 3rem;
+	}
+	.itemTable{ 
+		width: 80%;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		float:left;
+		margin-left: 3rem;
+	}
+}
+
 

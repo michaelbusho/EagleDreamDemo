@@ -21,8 +21,7 @@ app.post('/',(req, res) =>{
     
 	blizzardInfo.getBlizzardInfo(characterName, realm, function(info){
   		res.end(JSON.stringify(info));
-  	})
-   
+  	}); 
 });
 
 app.listen(3000, () => {

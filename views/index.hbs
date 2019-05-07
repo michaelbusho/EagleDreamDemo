@@ -27,17 +27,129 @@
 		</div>
 				<!-- The Modal -->
 		<div id="characterModal" class="modal">
+			<span class="close" onclick="closeCharacterModal()">&times;</span>
 			<!-- Modal content -->
 			<div class="modal-content">
 				<div class="characterTable">
-					
+					<div class="group1">
+						<div class="column column-first">
+							<div class="column-desc">
+								<span class="statsTitle">Attributes</span>
+								<span class="stat">Level</span>
+								<span class="stat">Health</span>
+								<span class="stat">Strength</span>
+								<span class="stat">Agility</span>
+								<span class="stat">Inteligence</span>
+								<span class="stat">Stamina</span>
+							</div>
 
-				
+							<div class="column-val">
+								<span class="stat-number" id="level" >--</span>
+								<span class="stat-number" id="health" >--</span>
+								<span class="stat-number" id="strength" >--</span>
+								<span class="stat-number" id="agility" >--</span>
+								<span class="stat-number" id="inteligence" >--</span>
+								<span class="stat-number" id="stamina" >--</span>
+							</div>
+						</div>
+						<div class="column column-second"> 
+							<div class="column-desc">
+								<span class="statsTitle">Attack</span>
+								<span class="stat">Damage</span>
+								<span class="stat">Speed</span>
+							</div>
+
+							<div class="column-val">
+								<span class="stat-number" id="damage" >--</span>
+								<span class="stat-number" id="speed" >--</span>
+							</div>
+						</div>
+						<div class="column column-third"> 
+							<div class="column-desc"> 
+								<span class="statsTitle">Spell</span>
+								<span class="stat">Mana Regen</span>
+							</div>
+							<div class="column-val"> 
+								<span class="stat-number" id="manaRegen" >--</span>
+							</div>
+						</div>
+					</div>
+					<div class="group2"> 
+						<div class="column column-forth"> 
+							<div class="column-desc"> 
+								<span class="statsTitle">Defense</span>
+								<span class="stat">Armor</span>
+								<span class="stat">Dodge</span>
+								<span class="stat">Parry</span>
+								<span class="stat">Block</span>
+							</div>
+							<div class="column-val"> 
+								<span class="stat-number" id="armor" >--</span>
+								<span class="stat-number" id="dodge" >--</span>
+								<span class="stat-number" id="parry" >--</span>
+								<span class="stat-number" id="block" >--</span>
+							</div>
+						</div>
+						<div class="column column-fifth"> 
+							<div class="column-desc"> 
+								<span class="statsTitle">Enhancements</span>
+								<span class="stat">Crit</span>
+								<span class="stat">Haste</span>
+								<span class="stat">Mastery</span>
+								<span class="stat">Leech</span>
+								<span class="stat">Versatility</span>
+							</div>
+
+							<div class="column-val">
+								<span class="stat-number" id="critical" >--</span>
+								<span class="stat-number" id="haste" >--</span>
+								<span class="stat-number" id="mastery" >--</span>
+								<span class="stat-number" id="leech" >--</span>
+								<span class="stat-number" id="versatility" >--</span>
+							</div>
+						</div>
+					</div>
+					<div class="seperator">	
+					</div>
+					<div class="group3"> 
+						<span class="compare">Compare Stats</span>
+						<div class="images-wrapper">
+							<div class="row">
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/mike.jpg" alt="Avatar1">
+								</div>
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/fuo.jpg" alt="Avatar2">
+								</div>
+							</div>
+							<div class="row">
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/regex.jpg" alt="Avatar3">
+								</div>
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/tweeps.jpg" alt="Avatar4">
+								</div>
+							</div>
+							<div class="row">
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/lockino.jpg" alt="Avatar5">
+								</div>
+								<div class="image-border hover-img">
+									<span class="hover-img-text"></span>
+									<img src="../Resources/avatars/briefdruid.jpg" alt="Avatar5">
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="itemTable">
 					items
 				</div>
-				<span class="close" onclick="closeCharacterModal()">&times;</span>
 			</div>
 		</div>
 	</div>

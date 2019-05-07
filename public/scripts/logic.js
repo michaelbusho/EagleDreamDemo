@@ -2,7 +2,6 @@
 var searchForm = $('#searchForm');
 var charModal = $('#characterModal');
 
-
 searchForm.submit(function (e) {
   charModal.hide();
   e.preventDefault();
@@ -46,28 +45,29 @@ function enableFailureModal(){
 }
 
 function populateFields(object){
-  
+console.log(object);
+
+  $('#level').text(object.statistics.level);
+  $('#strength').text(object.statistics.strength);
+  $('#agility').text(object.statistics.agility);
+  $('#inteligence').text(object.statistics.inteligent);
+  $('#stamina').text(object.statistics.stamina);
+  $('#health').text(object.statistics.health);
+  $('#damage').text(object.statistics.damage);
+  $('#speed').text(object.statistics.speed);
+  $('#haste').text(object.statistics.haste);
+
+  $('#armor').text(object.statistics.armor);
+  $('#dodge').text(object.statistics.dodge);
+  $('#parry').text(object.statistics.parry);
+  $('#block').text(object.statistics.block);
+ 
+  $('#critical').text(object.statistics.critical);
+  $('#haste').text(object.statistics.haste);
+  $('#mastery').text(object.statistics.mastery);
+  $('#leech').text(object.statistics.leech);
+  $('#versatility').text(object.statistics.versatility);
 /*
-  $('#level').text(object.statsObj.level);
-  $('#Strength').text(object.statsObj.stats.str);
-  $('#Agility').text(object.statsObj.stats.agi);
-  $('#Inteligence').text(object.statsObj.stats.int);
-  $('#Stamina').text(object.statsObj.stats.sta);
-  $('#health').text(object.statsObj.stats.health);
-  $('#damage').text(object.statsObj.stats.offHandDmgMin + "-" + object.statsObj.stats.offHandDmgMax);
-  $('#speed').text(object.statsObj.stats.speedRating);
-
-  $('#armor').text(object.statsObj.stats.armor);
-  $('#dodge').text(object.statsObj.stats.dodge);
-  $('#parry').text(object.statsObj.stats.parry);
-  $('#block').text(object.statsObj.stats.block);
-
-  $('#critical').text(object.statsObj.stats.crit);
-  $('#Haste').text(Math.round(parseInt(object.statsObj.stats.haste) * 100) / 100);
-  $('#mastery').text(object.statsObj.stats.mastery);
-  $('#leech').text(object.statsObj.stats.leech);
-  $('#versatility').text(object.statsObj.stats.versatility);
-
   $('#back').text(object.eqItemsObj.back.name);
   $('#chest').text(object.eqItemsObj.chest.name);
   $('#feet').text(object.eqItemsObj.feet.name);
