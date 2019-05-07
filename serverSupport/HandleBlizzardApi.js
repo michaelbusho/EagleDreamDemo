@@ -13,6 +13,7 @@ function getBlizzardInfo(characterName, realm, callback){
 		myToken = token;
 		axios.all([getCharacterStats(characterUrl), getEquipedItems(eqItemsUrl)])
 		.then(axios.spread(function (stats, eqItems){
+			var thumnbail = stats.data.thumbnail;
 			var statistics = createStatsObject(stats);
 			var eqItemsObj = eqItems.data.items;
 			var itemsID = getEquipedItemsID(eqItemsObj);
@@ -21,7 +22,7 @@ function getBlizzardInfo(characterName, realm, callback){
 				var finalItems ={};
 				finalItems = itemPatern.createFinalItems(itemsFullDesc, eqItemsObj);
 				var statusMessage = {status: 'ok', reason: 'ok'};
-				var info = {statistics, statusMessage, finalItems};
+				var info = {statistics, statusMessage, finalItems, thumnbail};
 
 				callback(info);
 			});
