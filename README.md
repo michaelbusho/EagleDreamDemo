@@ -1,6 +1,6 @@
 ![alt text](public/Resources/logo_coloured.png)
 
-#Blizzard API
+##Blizzard API
 This is a web application which makes use of the blizzard api to retrieve a player's stats and equipped items. For each equiped item additional information is being displayed. Users can search for their characters by entering their character username and the name of the realm.
 Build using nodejs, express and scss.
 
