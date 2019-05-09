@@ -1,0 +1,63 @@
+@import "statsTable.scss";
+@import "itemsTable.scss";
+
+//Character modal style
+#characterModal {
+	display: none;
+	margin-top: 1rem;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 52vh;
+	overflow: auto;
+	background-color: rgba(17, 23, 45, 0.72);
+	border-top: 1px solid rgba(168, 165, 187, 0.92);
+	border-bottom: 1px solid rgba(168, 165, 187, 0.92);
+}
+
+.close{
+	color: white;
+	font-size: 28px;
+	font-weight: bold;
+	padding-right: 2rem;
+	position:fixed;
+	right: 0; 
+}
+
+.close:hover {
+	cursor: pointer;
+	color:#ded8d7;
+}
+
+.close:active {
+	color:#aba4a2;
+}
+
+.modal-content {
+	height: 100%;
+	width: 100%;
+
+}
+
+.profile{
+	 
+	 float: left;
+	 margin-top: 1rem;
+	 margin-left: 1rem;
+	
+	 position:relative;
+	 height: 120px;
+	 width: 80px;
+}
+
+.profile-image{
+	position:absolute;
+	left: 40%;
+	height: 100%;
+	width: 100%;
+	img{
+		border: 2px solid white;
+		border-radius: 50%;
+	}
+}

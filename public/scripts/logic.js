@@ -54,17 +54,18 @@ function enableFailureModal(){
 function populateFields(object){
   var statistics = object.statistics;
   var finalItems = object.finalItems;
-
-  
-  $(`#profile-img`).attr("src", `http://render-us.worldofwarcraft.com/character/${object.thumnbail}`);
+ 
   Object.keys(statistics).forEach(function(key,index) {
     $(`#${key}`).text(statistics[key]);
+    $(`#profile-img`).attr("src", `http://render-us.worldofwarcraft.com/character/${statistics[key]}`);
   });
   var artifactName;
   Object.keys(finalItems).forEach(function(key,index) {
+    //enable equiped items containers
+    $(`.${key}-vis`).css('display','block');
+    //take care
     artifactName = finalItems[key].name;
-    artifactName.length<21?$(`.${key}`).text(finalItems[key].name):$(`.${key}`).text(artifactName.substring(0,19) +"..");
-  
+    artifactName.length<20?$(`.${key}`).text(finalItems[key].name):$(`.${key}`).text(artifactName.substring(0,20) +"..");
     $(`.${key}-sellPrice`).text(finalItems[key].sellPrice);
     $(`.${key}-buyPrice`).text(finalItems[key].buyPrice);
     $(`.${key}-requiredLevel`).text(finalItems[key].requiredLevel);

@@ -7,13 +7,15 @@ var eqItemsUrl;
 var myToken;
 
 function getBlizzardInfo(characterName, realm, callback){
+	//You need the get the token to be able to use the api calls
 	token.getAccessToken(function(token){ 
 		characterUrl = `https://us.api.blizzard.com/wow/character/${realm}/${characterName}?fields=stats&locale=en_US&access_token=${token}`;
 		eqItemsUrl = `https://us.api.blizzard.com/wow/character/${realm}/${characterName}?fields=items&locale=en_US&access_token=${token}`;
 		myToken = token;
+		//Start getting info from Blizzard
 		axios.all([getCharacterStats(characterUrl), getEquipedItems(eqItemsUrl)])
 		.then(axios.spread(function (stats, eqItems){
-			var thumnbail = stats.data.thumbnail;
+			
 			var statistics = createStatsObject(stats);
 			var eqItemsObj = eqItems.data.items;
 			var itemsID = getEquipedItemsID(eqItemsObj);
@@ -22,7 +24,7 @@ function getBlizzardInfo(characterName, realm, callback){
 				var finalItems ={};
 				finalItems = itemPatern.createFinalItems(itemsFullDesc, eqItemsObj);
 				var statusMessage = {status: 'ok', reason: 'ok'};
-				var info = {statistics, statusMessage, finalItems, thumnbail};
+				var info = {statistics, statusMessage, finalItems};
 
 				callback(info);
 			});
@@ -53,16 +55,18 @@ function createStatsObject(stats){
 				stamina: stats.data.stats.sta,
 				health: stats.data.stats.health,
 				damage: stats.data.stats.offHandDmgMin + "-" + stats.data.stats.offHandDmgMax,
-				speed:  stats.data.stats.speedRating,
+				speed:  stats.data.stats.speedRating.toFixed(2) + "/" +stats.data.stats.speedRatingBonus.toFixed(2),
 				armor: 	stats.data.stats.armor,
-				dodge: 	stats.data.stats.dodge,
-				parry: 	stats.data.stats.parry,
-				block: 	stats.data.stats.block,
-				critical: 	stats.data.stats.crit,
-				haste: 	stats.data.stats.haste,
-				mastery: stats.data.stats.mastery,
-				leech: stats.data.stats.leech,
-				versatility: stats.data.stats.versatility
+				dodge: 	stats.data.stats.dodge.toFixed(2),
+				parry: 	stats.data.stats.parry.toFixed(2),
+				block: 	stats.data.stats.block.toFixed(2),
+				critical: 	stats.data.stats.crit.toFixed(2),
+				haste: 	stats.data.stats.haste.toFixed(2),
+				mastery: stats.data.stats.mastery.toFixed(2),
+				leech: stats.data.stats.leech.toFixed(2),
+				versatility: stats.data.stats.versatility,
+				manaRegen: stats.data.stats.mana5,
+				thumnbail: stats.data.thumbnail
 			};
 }
 

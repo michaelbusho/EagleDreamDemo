@@ -1,0 +1,132 @@
+#sorry{ 
+	display: none;
+	color: white;
+	background-color: $color-primary;
+	border-top: 1px solid rgba(168, 165, 187, 0.92);
+	border-bottom: 1px solid rgba(168, 165, 187, 0.92);
+	border-radius: 10px;
+}
+
+@media only screen and (max-width: 400px) {
+	#characterModal {
+        display: none !important;
+    }
+
+    #sorry{
+    	display: block;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+	.characterTable {
+		width: 70%;
+		margin-top: 3rem;
+		height: 300px;
+		.group1{
+			width: 45%;
+		}
+		.group2{
+			width: 45%;
+		}
+		.seperator{
+			display: none!important;
+		}
+		.group3{
+			display: none!important;
+		}
+	}
+	.itemTable{ 
+		width: 70%;
+		margin-top: 3rem;
+		margin-bottom: 1rem;
+		float:left;
+		margin-left: 7rem;
+		height: 400px;
+		.item-row{
+			padding-bottom: 10px;
+		}
+		.item-col-right-money{
+			display: none;
+		}
+		.item-col-right-name{
+			width: 60%;
+		}
+	}
+	.close {
+		padding-right: 1.5rem;
+	}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+	#characterModal{
+		height: 400px;
+	}
+	.central-content {
+		margin-top: 3rem;
+		height: 80px;
+	}
+	.profile{
+		padding-left: 0px;
+		margin-left: 0px;
+		padding-top: 1rem;
+	}
+	.characterTable {
+		width: 76%;
+		margin-top: 3rem;
+		padding-top: 1rem;
+	}
+	.itemTable{ 
+		width: 76%;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		float:left;
+		margin-left: 6rem;
+	}
+	.column-second {
+		margin-top: .7rem;
+	}
+}
+@media only screen and (min-width:800px) and (max-width: 1200px) {
+	body{
+		color: red;
+	}
+	.characterTable {
+		width: 80%;
+		margin-top: 3rem;
+	}
+	.itemTable{ 
+		width: 80%;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		float:left;
+		margin-left: 7rem;
+	}
+	.column-second {
+		margin-top: .5rem;
+	}
+	.column-fifth {
+		margin-top: .5rem;
+	}
+}
+
+@media only screen and (min-width:1200px) and (max-width: 1400px) {
+	.characterTable {
+		width: 45%;
+		margin-top: 3rem;
+
+		.group3{
+			width: 35%;
+		}
+	}
+	.itemTable{ 
+		width: 40%;
+		margin-top: 3rem;
+		margin-bottom: 1rem;
+		float:right;
+		margin-right: 2.5rem;
+		margin-left: 0px;
+	}
+	.close {
+		padding-right: 1rem;
+	}
+}

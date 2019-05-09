@@ -1,0 +1,33 @@
+$input-color: #0e1329;
+$color-primary: #10162b;
+$color-stats: #9b712a;
+$color-stats-bold: #bd892b;
+$button-greenish-light: #1c8d83;
+$button-greenish: #197e75;
+$button-greenish-dark: #115852;
+$button-bluish-light:#3f7e91;
+$button-bluish: #386f80;
+$button-bluish-dark: #29525f;
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.7;
+	color: #777;
+	background-image: url(../Resources/wallpaper.jpg);
+	background-size: cover;
+	background-position: top;
+	height: 100vh;
+}
+.content-wrapper{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
