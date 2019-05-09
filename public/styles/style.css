@@ -400,6 +400,7 @@ body {
     width: 9px; }
 
 #characterModal {
+  display: none;
   margin-top: 1rem;
   z-index: 1;
   left: 0;
