@@ -1,0 +1,176 @@
+.characterTable {
+	margin-top: 2.5rem;
+	padding-top: 1rem;
+	background-color: $color-primary;
+	margin-left: 1rem;
+	width: 40%;
+	height: 80%;
+	border-radius: 10px;
+	border: 1px solid gray;
+	display: inline-block;
+	float: left;
+	padding-left: 1rem;
+	text-align: left;
+	z-index: 999;
+	overflow: hidden;
+	.group1{
+		height: 100%;
+		width: 30%;
+		display: inline-block;
+		padding-left: 0rem;;
+	
+	}
+	.group2{
+		height: 100%;
+		width: 30%;
+		display: inline-block;
+		padding-left: 0rem;
+	}
+	.seperator{
+		height: 60%;
+		width: 1.5px;
+		//border-right: 1px solid red;
+		display: inline-block;
+		border-radius: 50% 50% 0% 0%;
+		margin-bottom: 6%;
+		background: linear-gradient(to top, rgba(128,128,128, 0.8), rgba(0, 0, 0, 0));
+		padding-left: 0rem;;
+	}
+
+	.group3{
+		height: 100%;
+		width: 35%;
+		display: inline-block!important;
+		padding-left: 0rem;
+		margin-top: 0px;
+		padding-top: 0px;
+		margin-left: 5px;
+		vertical-align: top;
+		.compare{
+			color: $color-stats-bold;
+			display: block;
+		}
+	}
+
+	.column {
+		width:  100%;
+	}
+	.column-first{
+		height: 45%;
+		margin-bottom: 0rem;
+		
+	}
+
+	.column-second{
+		height: 30%;
+		padding-top: .5rem;
+	}
+
+	.column-third{
+		height: 30%;
+	}
+	.column-forth{
+		height: 40%;
+	}
+	.column-fifth {
+		height: 60%;
+		padding-top: 1.5rem;
+	}
+	.column-desc {
+		height: 100%;
+		width: 50%;
+		text-align: left;
+		padding-left: 1rem;
+		display: inline-block;
+		float: left;
+		.statsTitle{
+			color: white;
+			display: block;
+		}
+		.stat {
+			font-size: 11px;
+			color: $color-stats;
+			display: block;
+		}
+	}
+	.column-val{
+		float:right;
+		height: 100%;
+		width: 50%;
+		display: inline-block;
+		padding-top: 1.8rem;
+		.stat-number{
+			font-size: 11px;
+			display: block;
+			text-align: right;
+			padding-right: 1rem;
+		}
+	}
+	.images-wrapper{
+		height: 90%;
+		width: 100%;
+	}
+	.row{
+		  display: flex;
+		  flex-direction: row;
+		  flex-wrap: wrap;
+		  width: 100%;
+		  height: 30%;
+	}
+	.image-border{
+		width: 40%;
+		img{
+			display:block;
+    		margin:auto;
+    		height: 60px;
+    		width: 60px;
+    		margin-top: 15%;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		img:hover{
+			cursor: pointer;
+		}
+	}
+	.hover-img{
+		position: relative;
+  		display: inline-block;
+	}
+	.hover-img-text{
+		width: 150px;
+		height: 50px;
+		background-color: rgba(17, 23, 45, 0.72);
+		color: white;
+		text-align: center;
+		border-radius: 10px;
+		padding: 4px 8px;
+		position: absolute;
+		z-index: 99;
+		bottom: 100%;
+		left: 60%;
+		text-align: left;
+		font-size: 12px;
+	  	opacity: 0;
+  		transition: opacity 1s;
+  		visibility: hidden;
+	}
+	.hover-img .hover-img-text::after{
+		  content: "";
+		  position: absolute;
+		  top: 100%;
+		  left: 10%;
+		  margin-left: -5px;
+		  border-width: 5px;
+		  border-style: solid;
+		  border-color:  red transparent transparent transparent;
+	}
+	.hover-img:hover .hover-img-text {
+  		visibility: visible;
+  		opacity: 1;
+	}	
+	.hover-img-text::before{
+		content:"Where is this character from?";
+	}
+	.percent::after{
+		content: "%";
+	}
+}

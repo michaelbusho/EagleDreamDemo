@@ -6,25 +6,8 @@
 </head>
 <body>			
 	<div class="content-wrapper">
-		<div class="central-content">
-			<div class="logo">
-			  <img src="../Resources/eagleDream.png" alt="EagleDream Technologies logo" />
-			</div>
-			<div class="submission">
-				<form  id="searchForm" action="/" method="POST">
-					<input type="text" name="characterName" placeholder="Character name" required="required" pattern="[A-Za-z0-9]{1,20}">
-					  <br>
-					<input type="text" name="realm" placeholder="Realm name" required="required" pattern="[A-Za-z0-9]{1,20}">
-					  <br>
-					<input id="submitButton" type="submit" value="Search">
-					  <br>
-				</form>
-			</div>
-		</div>
-		<div class="cssload-container" id= "loading">
-			<div class="cssload-whirlpool"></div>
-			<span style="color:white">Load</span>	
-		</div>
+		{{> form }}
+		{{> loader }}
 		<div id="invalidModal" class="modal">
 			<div class="modal-content">
 				<span class="close close-fail" onclick="closefailureModal()">&times;</span>
@@ -32,6 +15,10 @@
 					
 				</div>
 			</div>
+		</div>
+
+		<div id="sorry">
+			Your screen width is not supported as is very small. Try to turn your device sideways or use a device with a wider screen
 		</div>
 				<!-- The Modal -->
 		<div id="characterModal" class="modal">
@@ -59,10 +46,10 @@
 							<div class="column-val">
 								<span class="stat-number" id="level" >--</span>
 								<span class="stat-number" id="health" >--</span>
-								<span class="stat-number" id="strength" >--</span>
-								<span class="stat-number" id="agility" >--</span>
+								<span class="stat-number 4" id="strength" >--</span>
+								<span class="stat-number 3" id="agility" >--</span>
 								<span class="stat-number" id="inteligent" >--</span>
-								<span class="stat-number" id="stamina" >--</span>
+								<span class="stat-number 7" id="stamina" >--</span>
 							</div>
 						</div>
 						<div class="column column-second"> 
@@ -80,7 +67,7 @@
 						<div class="column column-third"> 
 							<div class="column-desc"> 
 								<span class="statsTitle">Spell</span>
-								<span class="stat">Mana Regen</span>
+								<span class="stat">Mana</span>
 							</div>
 							<div class="column-val"> 
 								<span class="stat-number" id="manaRegen" >--</span>
@@ -98,9 +85,9 @@
 							</div>
 							<div class="column-val"> 
 								<span class="stat-number" id="armor" >--</span>
-								<span class="stat-number" id="dodge" >--</span>
-								<span class="stat-number" id="parry" >--</span>
-								<span class="stat-number" id="block" >--</span>
+								<span class="stat-number percent 13" id="dodge" >--</span>
+								<span class="stat-number percent" id="parry" >--</span>
+								<span class="stat-number percent" id="block" >--</span>
 							</div>
 						</div>
 						<div class="column column-fifth"> 
@@ -114,11 +101,11 @@
 							</div>
 
 							<div class="column-val">
-								<span class="stat-number" id="critical" >--</span>
-								<span class="stat-number" id="haste" >--</span>
-								<span class="stat-number" id="mastery" >--</span>
-								<span class="stat-number" id="leech" >--</span>
-								<span class="stat-number" id="versatility" >--</span>
+								<span class="stat-number percent 32" id="critical" >--</span>
+								<span class="stat-number percent 36" id="haste" >--</span>
+								<span class="stat-number percent 49" id="mastery" >--</span>
+								<span class="stat-number percent" id="leech" >--</span>
+								<span class="stat-number 40" id="versatility" >--</span>
 							</div>
 						</div>
 					</div>
@@ -161,10 +148,12 @@
 					</div>
 				</div>
 
-				<div class="itemTable">
+				<div class="itemTable" id="bar-style">
+
 					<span class="itemTitle">My item sets</span>
+
 					{{#each bodyParts}}
-						<div class="item-row hover-item">
+						<div class="item-row hover-item {{this}}-vis">
 							<div class="hover-item-panel">
 								<div class="img-wrapper">
 									
@@ -186,11 +175,12 @@
 							<div class="item-col">
 								<span class="item-descr">{{this}}</span>
 							</div>
-							<div class="item-col">
+							<div class="item-col item-col-right item-col-right-name">
 								<span class="item-val {{this}}">--</span>
 							</div>
-							<div class="item-col">
+							<div class="item-col item-col-right item-col-right-money">
 								<span class="price {{this}}-sellPrice" >-- </span>
+								<img class="coin-img" src="#">
 							</div>
 						</div>
   					{{/each}}

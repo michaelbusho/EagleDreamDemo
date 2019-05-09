@@ -140,67 +140,6 @@ body {
   100% {
     -moz-transform: rotate(360deg); } }
 
-.profile {
-  float: left;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  position: relative;
-  height: 120px;
-  width: 80px; }
-
-.profile-image {
-  position: absolute;
-  left: 40%;
-  height: 100%;
-  width: 100%; }
-  .profile-image img {
-    border: 2px solid white;
-    border-radius: 50%; }
-
-#invalidModal {
-  display: none;
-  margin-top: 1rem;
-  height: 53vh;
-  width: 100%;
-  background-color: rgba(17, 23, 45, 0.72);
-  z-index: 999; }
-
-#failure-reason {
-  text-transform: uppercase;
-  padding-top: 5rem;
-  font-size: 25px;
-  color: white; }
-
-#characterModal {
-  display: none;
-  margin-top: 1rem;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 53vh;
-  overflow: auto;
-  background-color: rgba(17, 23, 45, 0.72); }
-
-.close {
-  color: white;
-  font-size: 28px;
-  font-weight: bold;
-  padding-right: 2rem;
-  position: fixed;
-  right: 0; }
-
-.close:hover {
-  cursor: pointer;
-  color: #ded8d7; }
-
-.close:active {
-  color: #aba4a2; }
-
-.modal-content {
-  height: 100%;
-  width: 100%; }
-
 .characterTable {
   margin-top: 2.5rem;
   padding-top: 1rem;
@@ -213,7 +152,9 @@ body {
   display: inline-block;
   float: left;
   padding-left: 1rem;
-  text-align: left; }
+  text-align: left;
+  z-index: 999;
+  overflow: hidden; }
   .characterTable .group1 {
     height: 100%;
     width: 30%;
@@ -234,30 +175,31 @@ body {
     padding-left: 0rem; }
   .characterTable .group3 {
     height: 100%;
-    width: 34%;
+    width: 35%;
     display: inline-block !important;
     padding-left: 0rem;
     margin-top: 0px;
     padding-top: 0px;
     margin-left: 5px;
     vertical-align: top; }
-  .characterTable .compare {
-    color: #bd892b;
-    display: block; }
+    .characterTable .group3 .compare {
+      color: #bd892b;
+      display: block; }
   .characterTable .column {
     width: 100%; }
   .characterTable .column-first {
     height: 45%;
     margin-bottom: 0rem; }
   .characterTable .column-second {
-    height: 30%; }
+    height: 30%;
+    padding-top: .5rem; }
   .characterTable .column-third {
     height: 30%; }
   .characterTable .column-forth {
     height: 40%; }
   .characterTable .column-fifth {
     height: 60%;
-    padding-top: 1rem; }
+    padding-top: 1.5rem; }
   .characterTable .column-desc {
     height: 100%;
     width: 50%;
@@ -315,7 +257,7 @@ body {
     border-radius: 10px;
     padding: 4px 8px;
     position: absolute;
-    z-index: 1;
+    z-index: 99;
     bottom: 100%;
     left: 60%;
     text-align: left;
@@ -337,6 +279,8 @@ body {
     opacity: 1; }
   .characterTable .hover-img-text::before {
     content: "Where is this character from?"; }
+  .characterTable .percent::after {
+    content: "%"; }
 
 .itemTable {
   margin-top: 2.5rem;
@@ -350,12 +294,23 @@ body {
   display: inline-block;
   text-align: left;
   padding-left: 3rem;
-  padding-top: 0.5rem; }
+  padding-top: 0.5rem;
+  overflow-y: auto; }
+  .itemTable #bar-style::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5; }
+  .itemTable #bar-style::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5; }
+  .itemTable #bar-style::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #555555; }
   .itemTable .itemTitle {
     color: #bd892b;
-    display: block; }
+    display: inline-block; }
   .itemTable .item-row {
-    height: 20px; }
+    height: 20px;
+    display: none; }
   .itemTable .item-row:hover {
     cursor: pointer; }
   .itemTable .item-image {
@@ -385,7 +340,7 @@ body {
     border-radius: 10px;
     padding: 4px 8px;
     position: absolute;
-    z-index: 1;
+    z-index: 9999;
     bottom: 130%;
     left: -5%;
     text-align: left;
@@ -418,9 +373,13 @@ body {
   .itemTable .hover-item:hover .hover-item-panel {
     visibility: visible;
     opacity: 1; }
+  .itemTable .hover-id {
+    overflow: hidden; }
   .itemTable .item-col {
     display: inline-block;
     width: 30%; }
+  .itemTable .item-col-right {
+    text-align: right; }
   .itemTable .item-descr {
     display: inline-block;
     font-size: 11px;
@@ -434,38 +393,138 @@ body {
     display: inline-block;
     font-size: 11px;
     text-align: right;
-    padding-right: 2rem; }
-  .itemTable .price::after {
-    content: "\0024"; }
+    padding-right: 0.3rem; }
+  .itemTable .coin-img {
+    content: url("../Resources/SVG/coin.svg");
+    height: 9px;
+    width: 9px; }
 
-@media only screen and (max-width: 200px) {
-  body {
-    color: red; } }
+#characterModal {
+  margin-top: 1rem;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50vh;
+  overflow: auto;
+  background-color: rgba(17, 23, 45, 0.72); }
 
-@media only screen and (min-width: 200px) and (max-width: 400px) {
-  body {
-    color: black; } }
+.close {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  padding-right: 2rem;
+  position: fixed;
+  right: 0; }
+
+.close:hover {
+  cursor: pointer;
+  color: #ded8d7; }
+
+.close:active {
+  color: #aba4a2; }
+
+.modal-content {
+  height: 100%;
+  width: 100%; }
+
+.profile {
+  float: left;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  position: relative;
+  height: 120px;
+  width: 80px; }
+
+.profile-image {
+  position: absolute;
+  left: 40%;
+  height: 100%;
+  width: 100%; }
+  .profile-image img {
+    border: 2px solid white;
+    border-radius: 50%; }
+
+#invalidModal {
+  display: none;
+  margin-top: 1rem;
+  height: 53vh;
+  width: 100%;
+  background-color: rgba(17, 23, 45, 0.72);
+  z-index: 999; }
+
+#failure-reason {
+  text-transform: uppercase;
+  padding-top: 5rem;
+  font-size: 25px;
+  color: white; }
+
+#sorry {
+  display: none;
+  color: white;
+  background-color: #10162b;
+  border: 1px solid white;
+  border-radius: 10px; }
+
+@media only screen and (max-width: 400px) {
+  #characterModal {
+    display: none !important; }
+  #sorry {
+    display: block; } }
 
 @media only screen and (min-width: 400px) and (max-width: 600px) {
-  body {
-    color: magenta; } }
+  .characterTable {
+    width: 70%;
+    margin-top: 3rem;
+    height: 300px; }
+    .characterTable .group1 {
+      width: 45%; }
+    .characterTable .group2 {
+      width: 45%; }
+    .characterTable .seperator {
+      display: none !important; }
+    .characterTable .group3 {
+      display: none !important; }
+  .itemTable {
+    width: 70%;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    float: left;
+    margin-left: 7rem;
+    height: 400px; }
+    .itemTable .item-row {
+      padding-bottom: 10px; }
+    .itemTable .item-col-right-money {
+      display: none; }
+    .itemTable .item-col-right-name {
+      width: 60%; }
+  .close {
+    padding-right: 1.5rem; } }
 
 @media only screen and (min-width: 600px) and (max-width: 800px) {
-  body {
-    color: red; }
+  #characterModal {
+    height: 400px; }
+  .central-content {
+    margin-top: 3rem;
+    height: 80px; }
+  .profile {
+    padding-left: 0px;
+    margin-left: 0px;
+    padding-top: 1rem; }
   .characterTable {
-    width: 80%;
-    margin-top: 3rem; }
+    width: 76%;
+    margin-top: 3rem;
+    padding-top: 1rem; }
   .itemTable {
-    width: 80%;
+    width: 76%;
     margin-top: 2rem;
     margin-bottom: 1rem;
     float: left;
-    margin-left: 3rem; } }
+    margin-left: 6rem; }
+  .column-second {
+    margin-top: .7rem; } }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
-  body {
-    color: yellow; }
   .characterTable {
     width: 80%;
     margin-top: 3rem; }
@@ -474,17 +533,24 @@ body {
     margin-top: 2rem;
     margin-bottom: 1rem;
     float: left;
-    margin-left: 3rem; } }
+    margin-left: 7rem; }
+  .column-second {
+    margin-top: .5rem; }
+  .column-fifth {
+    margin-top: .5rem; } }
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
-  body {
-    color: blue; }
   .characterTable {
-    width: 80%;
+    width: 45%;
     margin-top: 3rem; }
+    .characterTable .group3 {
+      width: 35%; }
   .itemTable {
-    width: 80%;
-    margin-top: 2rem;
+    width: 40%;
+    margin-top: 3rem;
     margin-bottom: 1rem;
-    float: left;
-    margin-left: 3rem; } }
+    float: right;
+    margin-right: 2.5rem;
+    margin-left: 0px; }
+  .close {
+    padding-right: 1rem; } }
