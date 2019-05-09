@@ -7,6 +7,7 @@ const blizzardInfo = require('./serverSupport/HandleBlizzardApi.js');
 var sanitizer = require('sanitizer');
 
 //Setting important variables
+const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.set('view engine', 'hbs');
@@ -51,6 +52,6 @@ app.get('*', function(req, res){
   res.render('wrongLink.hbs');
 });
 
-app.listen(3000, () => {
-	console.log('app is running on port 3000');
+app.listen(port, () => {
+	console.log(`app is running on port ${port}`);
 });

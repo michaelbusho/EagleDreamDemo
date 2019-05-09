@@ -12,7 +12,7 @@ function getBlizzardInfo(characterName, realm, callback){
 		characterUrl = `https://us.api.blizzard.com/wow/character/${realm}/${characterName}?fields=stats&locale=en_US&access_token=${token}`;
 		eqItemsUrl = `https://us.api.blizzard.com/wow/character/${realm}/${characterName}?fields=items&locale=en_US&access_token=${token}`;
 		myToken = token;
-
+		//Start getting info from Blizzard
 		axios.all([getCharacterStats(characterUrl), getEquipedItems(eqItemsUrl)])
 		.then(axios.spread(function (stats, eqItems){
 			
