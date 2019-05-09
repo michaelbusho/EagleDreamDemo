@@ -5,6 +5,7 @@ const hbs = require('hbs');
 const request = require('request');
 const blizzardInfo = require('./serverSupport/HandleBlizzardApi.js');
 var sanitizer = require('sanitizer');
+var favicon = require('serve-favicon');
 
 //Setting important variables
 const port = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials/');
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 //Used to generate dynamic html
 var bodyParts = [
