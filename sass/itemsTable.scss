@@ -32,7 +32,7 @@
 
 	.itemTitle{
 		color: $color-stats-bold;
-	display: inline-block;
+		display: inline-block;
 	}
 	.item-row{
 		height: 20px;
@@ -41,7 +41,7 @@
 
 	.item-row:hover{
 		cursor: pointer;
-		//background-color: red;
+		
 	}
 
 	.item-image{
@@ -68,6 +68,19 @@
 	.hover-item{
 		position: relative;
 	}
+
+	.hover-item:nth-child(-n+4){
+		.hover-item-panel{ 
+			bottom: -450%;
+			left: -5%;
+		}
+		.hover-item-panel::after{ 
+			top: -15%;
+			left: 10%;
+			border-color:  transparent transparent red transparent;
+		}
+	}
+
 	.hover-item-panel{
 		width: 250px;
 		height: 80px;
@@ -108,7 +121,7 @@
 		content: '';
 		position: absolute;
 		top: 111%;
-		left: 12%;
+		left: 10%;
 		margin-left: -5px;
 		border-width: 5px;
 		border-style: solid;

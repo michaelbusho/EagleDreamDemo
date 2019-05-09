@@ -131,6 +131,18 @@
 			cursor: pointer;
 		}
 	}
+	.hover-img:nth-child(even){
+	
+		.hover-img-text{
+			bottom: 100%;
+			left: -90%;
+		}
+
+		.hover-img-text::after{
+			bottom: -15%;
+			left: 90%;
+		}
+	}
 	.hover-img{
 		position: relative;
   		display: inline-block;
@@ -153,6 +165,8 @@
   		transition: opacity 1s;
   		visibility: hidden;
 	}
+
+	
 	.hover-img .hover-img-text::after{
 		  content: "";
 		  position: absolute;

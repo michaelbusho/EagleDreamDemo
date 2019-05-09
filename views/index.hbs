@@ -3,6 +3,11 @@
 <head>
 	<title>EagleDream Demo</title>
 	<link rel="stylesheet" href="styles/style.css">
+	  <meta charset="UTF-8">
+	  <meta name="description" content="Small deno application using blizzards api">
+	  <meta name="keywords" content="wow, blizzard, api, demo">
+	  <meta name="author" content="Mike Busho">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>			
 	<div class="content-wrapper">
@@ -153,36 +158,39 @@
 					<span class="itemTitle">My item sets</span>
 
 					{{#each bodyParts}}
-						<div class="item-row hover-item {{this}}-vis">
-							<div class="hover-item-panel">
-								<div class="img-wrapper">
-									
-									<img src="../Resources/black.jpg" class="{{this}}-icon item-image" >
+					
+							<div class="item-row hover-item {{this}}-vis">
+								<div class="hover-item-panel">
+									<div class="img-wrapper">
+										
+										<img src="../Resources/black.jpg" class="{{this}}-icon item-image" >
+									</div>
+									<div class="hover-stat-wrapper">
+										<span class="hover-stat"> Name: </span>
+										<span class="hover-stat"> SellPrice: </span>
+										<span class="hover-stat"> BuyPrice: </span>
+										<span class="hover-stat"> Min Lvl: </span>
+									</div>
+									<div class="hover-value-wrapper">
+										<span class="hover-id {{this}}" >--</span>
+										<span class="hover-id {{this}}-sellPrice" >--</span>
+										<span class="hover-id {{this}}-buyPrice">--</span>
+										<span class="hover-id {{this}}-requiredLevel" id="hover-level">--</span>
+									</div>
 								</div>
-								<div class="hover-stat-wrapper">
-									<span class="hover-stat"> Name: </span>
-									<span class="hover-stat"> SellPrice: </span>
-									<span class="hover-stat"> BuyPrice: </span>
-									<span class="hover-stat"> Min Lvl: </span>
+								<div class="item-col">
+									<span class="item-descr">{{this}}</span>
 								</div>
-								<div class="hover-value-wrapper">
-									<span class="hover-id {{this}}" >--</span>
-									<span class="hover-id {{this}}-sellPrice" >--</span>
-									<span class="hover-id {{this}}-buyPrice">--</span>
-									<span class="hover-id {{this}}-requiredLevel" id="hover-level">--</span>
+								<div class="item-col item-col-right item-col-right-name">
+									<span class="item-val {{this}}">--</span>
+								</div>
+								<div class="item-col item-col-right item-col-right-money">
+									<span class="price {{this}}-sellPrice" >-- </span>
+									<img class="coin-img" src="#">
 								</div>
 							</div>
-							<div class="item-col">
-								<span class="item-descr">{{this}}</span>
-							</div>
-							<div class="item-col item-col-right item-col-right-name">
-								<span class="item-val {{this}}">--</span>
-							</div>
-							<div class="item-col item-col-right item-col-right-money">
-								<span class="price {{this}}-sellPrice" >-- </span>
-								<img class="coin-img" src="#">
-							</div>
-						</div>
+					
+
   					{{/each}}
 				</div>
 			</div>

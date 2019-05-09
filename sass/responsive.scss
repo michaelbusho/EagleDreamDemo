@@ -2,7 +2,8 @@
 	display: none;
 	color: white;
 	background-color: $color-primary;
-	border: 1px solid white;
+	border-top: 1px solid rgba(168, 165, 187, 0.92);
+	border-bottom: 1px solid rgba(168, 165, 187, 0.92);
 	border-radius: 10px;
 }
 
@@ -86,6 +87,9 @@
 	}
 }
 @media only screen and (min-width:800px) and (max-width: 1200px) {
+	body{
+		color: red;
+	}
 	.characterTable {
 		width: 80%;
 		margin-top: 3rem;

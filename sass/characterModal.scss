@@ -9,9 +9,11 @@
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 50vh;
+	height: 52vh;
 	overflow: auto;
 	background-color: rgba(17, 23, 45, 0.72);
+	border-top: 1px solid rgba(168, 165, 187, 0.92);
+	border-bottom: 1px solid rgba(168, 165, 187, 0.92);
 }
 
 .close{

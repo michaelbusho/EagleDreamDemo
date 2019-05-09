@@ -245,6 +245,12 @@ body {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
     .characterTable .image-border img:hover {
       cursor: pointer; }
+  .characterTable .hover-img:nth-child(even) .hover-img-text {
+    bottom: 100%;
+    left: -90%; }
+  .characterTable .hover-img:nth-child(even) .hover-img-text::after {
+    bottom: -15%;
+    left: 90%; }
   .characterTable .hover-img {
     position: relative;
     display: inline-block; }
@@ -331,6 +337,13 @@ body {
     text-align: right; }
   .itemTable .hover-item {
     position: relative; }
+  .itemTable .hover-item:nth-child(-n+4) .hover-item-panel {
+    bottom: -450%;
+    left: -5%; }
+  .itemTable .hover-item:nth-child(-n+4) .hover-item-panel::after {
+    top: -15%;
+    left: 10%;
+    border-color: transparent transparent red transparent; }
   .itemTable .hover-item-panel {
     width: 250px;
     height: 80px;
@@ -365,7 +378,7 @@ body {
     content: '';
     position: absolute;
     top: 111%;
-    left: 12%;
+    left: 10%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
@@ -406,9 +419,11 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 50vh;
+  height: 52vh;
   overflow: auto;
-  background-color: rgba(17, 23, 45, 0.72); }
+  background-color: rgba(17, 23, 45, 0.72);
+  border-top: 1px solid rgba(168, 165, 187, 0.92);
+  border-bottom: 1px solid rgba(168, 165, 187, 0.92); }
 
 .close {
   color: white;
@@ -452,7 +467,9 @@ body {
   height: 53vh;
   width: 100%;
   background-color: rgba(17, 23, 45, 0.72);
-  z-index: 999; }
+  z-index: 999;
+  border-top: 1px solid rgba(168, 165, 187, 0.92);
+  border-bottom: 1px solid rgba(168, 165, 187, 0.92); }
 
 #failure-reason {
   text-transform: uppercase;
@@ -464,7 +481,8 @@ body {
   display: none;
   color: white;
   background-color: #10162b;
-  border: 1px solid white;
+  border-top: 1px solid rgba(168, 165, 187, 0.92);
+  border-bottom: 1px solid rgba(168, 165, 187, 0.92);
   border-radius: 10px; }
 
 @media only screen and (max-width: 400px) {
@@ -526,6 +544,8 @@ body {
     margin-top: .7rem; } }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
+  body {
+    color: red; }
   .characterTable {
     width: 80%;
     margin-top: 3rem; }
